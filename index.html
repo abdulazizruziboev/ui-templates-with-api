@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" class="font-[Poppins] bg-[#030712]">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Big+Shoulders:opsz,wght@10..72,100..900&family=Chewy&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend+Deca:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Practice |  BackEnd &LeftArrow;[ API ]&RightArrow; FrontEnd</title>
+</head>
+<body>
+    
+    <header class="flex items-center justify-center px-10 min-h-[80px]">
+        <div class="flex items-center justify-center">
+            <h3 class="text-white text-[24px]">
+                World cars 
+            </h3>
+        </div>
+    </header>
+
+    <main class="p-6 py-12 w-full">
+    <template id="jsSkeletonTemplate">
+        <div class="flex flex-wrap gap-6 justify-center">
+        <div class="flex w-52 flex-col gap-4 opacity-[0.50] w-[400px] min-h-[400px]">
+            <div class="skeleton h-32 min-h-[225px]"></div>
+            <div class="skeleton h-4 w-28 min-h-[25px]"></div>
+            <div class="skeleton h-4 w-full min-h-[16px]"></div>
+            <div class="skeleton h-4 w-full min-h-[16px]"></div>
+            <div class="skeleton h-4 w-full min-h-[16px]"></div>
+            <div class="skeleton h-4 w-full min-h-[40px]"></div>
+        </div>
+    </div>
+    </template>
+    <div id="skeletonBox" class="flex flex-wrap gap-6 justify-center"></div>
+      <template id="jsCardTemplate">
+            <div class="min-w-[400px]  border-[2px] border-[#333] gap-[6px] overflow-hidden rounded-[16px] flex  flex-col bg-[#030303] js-card">
+            <img src="https://img.freepik.com/free-photo/supercar-mountain-road_23-2151948137.jpg" alt="" aria-hidden="true"
+            class="w-full h-[220px] rounded-[0px_0px_10px_10px] js-data-img" 
+            >
+            <div class="py-2 px-2 flex flex-col gap-4 mt-2">
+                <h2 class="leading-none text-[24px] text-[#ddd] js-data-name"></h2>         
+                <p class="leading-none text-[16px] text-[#ddd] font-bolder">Type - <span class="font-bold js-data-type"></span></p>
+                <p class="leading-none text-[16px] text-[#ddd] font-bolder">Fuel - <span class="font-bold js-data-fuel"></span></p>
+                <p class="leading-none text-[16px] text-[#ddd] font-bolder">Gearbox - <span class="font-bold js-data-gearbox"></span></p>
+                <p class="leading-none text-[16px] text-[#ddd] font-bolder">Drive - <span class="font-bold js-data-drive"></span></p>
+            </div>
+            <span class="w-full h-[2px]  bg-[#333] my-2"></span>
+            <div class="px-2 mb-3">
+                <button class="text-white w-full bg-red-500 flex justify-center items-center py-2 rounded-[10px] cursor-pointer hover:bg-red-700 hover:text-red-200 transition-color duration-200 js-data-delete">
+                    <span class="text-[16px] font-bolder tracking-[0.5] pointer-events-none">
+                        Delete
+                    </span>
+                    <svg class="pointer-events-none" width="25" height="25" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 1C5.22386 1 5 1.22386 5 1.5C5 1.77614 5.22386 2 5.5 2H9.5C9.77614 2 10 1.77614 10 1.5C10 1.22386 9.77614 1 9.5 1H5.5ZM3 3.5C3 3.22386 3.22386 3 3.5 3H5H10H11.5C11.7761 3 12 3.22386 12 3.5C12 3.77614 11.7761 4 11.5 4H11V12C11 12.5523 10.5523 13 10 13H5C4.44772 13 4 12.5523 4 12V4L3.5 4C3.22386 4 3 3.77614 3 3.5ZM5 4H10V12H5V4Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                </button>
+            </div>
+        </div>
+      </template>
+      <div class="flex flex-wrap gap-6 justify-center" id="cardsBox" ></div>
+    </main>
+    
+    <div class="fixed">
+        
+    </div>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
