@@ -1,12 +1,19 @@
 fetch("https://json-api.uz/api/project/fn44-amaliyot/cars",{})
 .then(
-(res)=>res.json())
+(res)=>
+{
+if(!res.ok) {
+document.querySelector("#errorBox").style.display="flex";
+document.querySelector(".js-error-code").textContent=res.status;
+}
+ return res.json()
+})
 .then(
 (res)=>uiWrite(res.data))
 .catch((err)=>{
 console.log(err);
 document.querySelector("#errorBox").style.display="flex";
-document.querySelector(".js-error-code").textContent=err;
+document.querySelector(".js-error-code").style.display="none";
 });
 function uiWrite(data) {
     skeletonUiWrite(false)
