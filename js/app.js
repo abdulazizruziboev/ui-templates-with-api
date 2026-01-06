@@ -3,7 +3,11 @@ fetch("https://json-api.uz/api/project/fn44-amaliyot/cars",{})
 (res)=>res.json())
 .then(
 (res)=>uiWrite(res.data))
-.catch((err)=>console.log(err));
+.catch((err)=>{
+console.log(err);
+document.querySelector("#errorBox").style.display="flex";
+document.querySelector(".js-error-code").textContent=err;
+});
 function uiWrite(data) {
     skeletonUiWrite(false)
     const elMainTemplate=document.getElementById("jsCardTemplate");
