@@ -6,6 +6,7 @@ if(!res.ok) {
 document.querySelector("#errorBox").style.display="flex";
 document.querySelector(".js-error-code").textContent=res.status;
 }
+console.log(res);
  return res.json()
 })
 .then(
