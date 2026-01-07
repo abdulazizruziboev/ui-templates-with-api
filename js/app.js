@@ -6,7 +6,6 @@ if(!res.ok) {
 document.querySelector("#errorBox").style.display="flex";
 document.querySelector(".js-error-code").textContent=res.status;
 }
-console.log(res);
  return res.json()
 })
 .then(
@@ -50,14 +49,36 @@ function skeletonUiWrite(bool, len){
 skeletonUiWrite(true, 7);  
 function elementDelete(element) {
   element.addEventListener("click",(evt)=>{
+  document.querySelector(".js-request-toast").style.backgroundColor="#c6e2ff";
+  document.querySelector(".js-request-toast").style.color="#000";
+  let uiClass = "justify-center items-center min-w-[320px] min-h-[50px] rounded-[20px] font-[Poppins] text-[18px] bg-[#C6E2FF] border-[1px solid] hidden js-request-toast px-4";
+  uiClass=uiClass.split(" ").forEach(el=>document.querySelector(".js-request-toast").classList.add(el));
+  document.querySelector(".js-request-toast").textContent="So'rov yuborilmoqda";
   let targetedCard =  document.querySelector(`[data-card-id="${evt.target.getAttribute("data-delete")}"]`);
-  fetch(`https://json-api.uz/api/project/fn44-amaliyot/cars/x/${evt.target.getAttribute("data-delete")}`,{
+  document.querySelector(".js-request-toast").style.display="flex";
+  fetch(`https://json-api.uz/api/project/fn44-amaliyot/cars/${evt.target.getAttribute("data-delete")}`,{
     method: "DELETE",
   }).then((res)=> {
     if(res.ok) {
       targetedCard.style.display="none";
-    } else if(!res.ok) alert(`Tizimda qandaydur nosozlik bo'moqda!\nXatolik kodi - ${res.status?res.status:'No content'}`);
+      document.querySelector(".js-request-toast").style.display="flex";
+      document.querySelector(".js-request-toast").style.color="#fff";
+      document.querySelector(".js-request-toast").style.backgroundColor="#00ff00";
+      document.querySelector(".js-request-toast").textContent="Muvaffaqiyatli bajarildi";
+      setTimeout(()=>{
+      document.querySelector(".js-request-toast").style.display="none";
+      },1500)
+    } else if(!res.ok) {
+        document.querySelector(".js-request-toast").style.display="flex";
+        document.querySelector(".js-request-toast").style.color="#fff";
+        document.querySelector(".js-request-toast").style.backgroundColor="#ff0000";
+        document.querySelector(".js-request-toast").textContent =`Tizimda qandaydur nosozlik bo'moqda!\nXatolik kodi - ${res.status?res.status:'No content'}`;
+        setTimeout(()=>{
+           document.querySelector(".js-request-toast").style.display="none";
+        },1500)
+    }
   }).catch((res)=>
     console.log(res));
   });
 };
+

@@ -13,7 +13,7 @@
 </head>
 <body>
     
-    <header class="flex items-center justify-center px-10 min-h-[80px]">
+    <header class="flex items-center justify-center px-10 min-h-[80px] py-10">
         <div class="flex items-center justify-center">
             <h3 class="text-white text-[24px]">
                 World cars 
@@ -64,6 +64,12 @@
     <div class="top-0 left-0 fixed hidden h-full w-full bg-[#030712] justify-center items-center flex-col gap-1" id="errorBox">
         <span class="text-[#fff7] text z-999 text-[80px] font-[Poppins] js-error-code" >000</span>
         <span class="text-[#fff7] text z-999 text-[20px] font-[Poppins] ">Opps... Something Wrong</span>
+    </div>
+
+    <div class="w-full fixed min-h-[100px] top-0 left-0 flex justify-end items-center px-5 pointer-events-none">
+        <div class="justify-center items-center min-w-[320px] min-h-[50px] rounded-[20px] font-[Poppins] text-[18px] bg-[#C6E2FF] border-[1px solid] hidden js-request-toast px-4">
+            So'rov yuborilmoqda
+        </div>
     </div>
 
     <script src="/js/app.js"></script>
