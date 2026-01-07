@@ -62,7 +62,7 @@ function elementDelete(element) {
     if(res.ok) {
       targetedCard.style.display="none";
       document.querySelector(".js-request-toast").style.display="flex";
-      document.querySelector(".js-request-toast").style.color="#fff";
+      document.querySelector(".js-request-toast").style.color="#000";
       document.querySelector(".js-request-toast").style.backgroundColor="#00ff00";
       document.querySelector(".js-request-toast").textContent="Muvaffaqiyatli bajarildi";
       setTimeout(()=>{
@@ -81,4 +81,3 @@ function elementDelete(element) {
     console.log(res));
   });
 };
-
